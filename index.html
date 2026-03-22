@@ -8,7 +8,370 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0a0c10;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1e24;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 12, 16, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1e2a3a;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .navbar a:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 0 4rem;
+            border-bottom: 1px solid #1e2a3a;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        .hero-left h6 {
+            color: #3b82f6;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .hero-left h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-left .highlight {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+        }
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #3b82f6;
+            padding-left: 1rem;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #111318;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid #1e2a3a;
+        }
+        .contact-item i {
+            color: #3b82f6;
+            font-size: 1rem;
+        }
+        .contact-item:hover {
+            background: #1a1e24;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #111318;
+            border-radius: 50%;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            border: 1px solid #1e2a3a;
+        }
+        .social-icons a:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+            border-color: #3b82f6;
+        }
+        .hero-right {
+            background: linear-gradient(145deg, #0f1117, #0a0c10);
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #1e2a3a;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+        }
+        .availability-badge {
+            background: #10b98120;
+            color: #34d399;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid #10b98140;
+        }
+        .code-icon {
+            font-size: 4rem;
+            color: #3b82f6;
+            margin: 1rem 0;
+        }
+        .card {
+            background: #0f1117;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #1e2a3a;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .card:hover {
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+            border-color: #2d3a4a;
+            transform: translateY(-2px);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #1e2a3a;
+        }
+        .section-header i {
+            font-size: 1.6rem;
+            color: #3b82f6;
+            background: #1e293b;
+            padding: 0.5rem;
+            border-radius: 12px;
+        }
+        .section-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #f1f5f9;
+        }
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 2px solid #2d3a4a;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #3b82f6;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #3b82f6;
+        }
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: #f1f5f9;
+        }
+        .timeline-sub {
+            color: #3b82f6;
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .timeline-desc {
+            list-style: none;
+        }
+        .timeline-desc li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.7rem;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        .timeline-desc li i {
+            color: #3b82f6;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+        .skill-pill {
+            background: linear-gradient(135deg, #111318, #0a0c10);
+            border: 1px solid #2d3a4a;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: #cbd5e1;
+        }
+        .skill-pill:hover {
+            border-color: #3b82f6;
+            background: #1e293b;
+            transform: scale(1.02);
+            color: white;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .project-card {
+            background: #0a0c10;
+            border: 1px solid #1e2a3a;
+            border-radius: 1.2rem;
+            padding: 1.3rem;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .project-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.5);
+            background: #0f1117;
+        }
+        .project-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+        .project-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #f1f5f9;
+        }
+        .project-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #1e2a3a;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        .highlight-text {
+            background: #1e293b;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border: 1px solid #2d3a4a;
+        }
+        @media (max-width: 700px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero-left h1 {
+                font-size: 2.4rem;
+            }
+            .card {
+                padding: 1.3rem;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card, .hero {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -51,6 +414,7 @@
             </div>
         </div>
 
+        <!-- Resumo com o novo texto -->
         <div class="card">
             <div class="section-header">
                 <i class="fas fa-user-tie"></i>
@@ -79,6 +443,7 @@
             </div>
         </div>
 
+        <!-- Formação Acadêmica com Ensino Médio adicionado -->
         <div class="card" id="formacao">
             <div class="section-header">
                 <i class="fas fa-graduation-cap"></i>
@@ -120,41 +485,24 @@
             <div style="margin-bottom: 1.5rem;">
                 <h3 style="font-size: 1rem; margin-bottom: 0.8rem; color: #e2e8f0;">📌 Principais stacks</h3>
                 <div class="skills-wrapper">
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">JavaScript (ES6+)</span>
-                    <span class="skill-pill">HTML5/CSS3</span>
-                    <span class="skill-pill">SQL (MySQL)</span>
-                    <span class="skill-pill">APIs REST</span>
-                    <span class="skill-pill">Java / C#</span>
-                    <span class="skill-pill">Power BI</span>
-                    <span class="skill-pill">VBA / Power Automate</span>
-                    <span class="skill-pill">AWS (Fundamentos)</span>
-                    <span class="skill-pill">FlutterFlow / NoCode</span>
-                    <span class="skill-pill">Inteligência Artificial</span>
-                    <span class="skill-pill">Make (Integromat)</span>
+                    <span class="skill-pill">Python</span><span class="skill-pill">JavaScript (ES6+)</span><span class="skill-pill">HTML5/CSS3</span>
+                    <span class="skill-pill">SQL (MySQL)</span><span class="skill-pill">APIs REST</span><span class="skill-pill">Java / C#</span>
+                    <span class="skill-pill">Power BI</span><span class="skill-pill">VBA / Power Automate</span><span class="skill-pill">AWS (Fundamentos)</span>
+                    <span class="skill-pill">FlutterFlow / NoCode</span><span class="skill-pill">Inteligência Artificial</span><span class="skill-pill">Make (Integromat)</span>
                 </div>
             </div>
             <div>
                 <h3 style="font-size: 1rem; margin-bottom: 0.8rem; color: #e2e8f0;">🎓 Certificações & Cursos Avançados</h3>
                 <div class="skills-wrapper">
-                    <span class="skill-pill">Python Impressionador</span>
-                    <span class="skill-pill">Full Stack Impressionador</span>
-                    <span class="skill-pill">SQL Impressionador</span>
-                    <span class="skill-pill">Power BI Impressionador</span>
-                    <span class="skill-pill">AWS Impressionador</span>
-                    <span class="skill-pill">IA Impressionador</span>
-                    <span class="skill-pill">VBA Impressionador</span>
-                    <span class="skill-pill">Power Automate</span>
-                    <span class="skill-pill">Análise de Dados</span>
-                    <span class="skill-pill">Excel Impressionador</span>
-                    <span class="skill-pill">APIs de IA</span>
-                    <span class="skill-pill">Trilha NoCodeIA</span>
-                    <span class="skill-pill">PowerPoint Impressionador</span>
-                    <span class="skill-pill">NBN Impressionador</span>
-                    <span class="skill-pill">FlutterFlow Impressionador</span>
-                    <span class="skill-pill">Make (Integromat)</span>
-                    <span class="skill-pill">Power Apps</span>
-                    <span class="skill-pill">JavaScript Impressionador</span>
+                    <span class="skill-pill">Python Impressionador</span><span class="skill-pill">Full Stack Impressionador</span>
+                    <span class="skill-pill">SQL Impressionador</span><span class="skill-pill">Power BI Impressionador</span>
+                    <span class="skill-pill">AWS Impressionador</span><span class="skill-pill">IA Impressionador</span>
+                    <span class="skill-pill">VBA Impressionador</span><span class="skill-pill">Power Automate</span>
+                    <span class="skill-pill">Análise de Dados</span><span class="skill-pill">Excel Impressionador</span>
+                    <span class="skill-pill">APIs de IA</span><span class="skill-pill">Trilha NoCodeIA</span>
+                    <span class="skill-pill">PowerPoint Impressionador</span><span class="skill-pill">NBN Impressionador</span>
+                    <span class="skill-pill">FlutterFlow Impressionador</span><span class="skill-pill">Make (Integromat)</span>
+                    <span class="skill-pill">Power Apps</span><span class="skill-pill">JavaScript Impressionador</span>
                     <span class="skill-pill">HTML & CSS Impressionador</span>
                 </div>
             </div>
@@ -224,6 +572,90 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.createElement('button');
+        backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTop.id = 'backToTop';
+        document.body.appendChild(backToTop);
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Estilo do botão back to top
+        const style = document.createElement('style');
+        style.textContent = `
+            #backToTop {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, #3b82f6, #6366f1);
+                border: none;
+                border-radius: 50%;
+                color: white;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 999;
+                font-size: 1.2rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            #backToTop.show {
+                opacity: 1;
+                visibility: visible;
+            }
+            #backToTop:hover {
+                transform: scale(1.1);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log('✨ Portfólio Celso Takahashi carregado com sucesso! ✨');
+    </script>
 </body>
 </html>
