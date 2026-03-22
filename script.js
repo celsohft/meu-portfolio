@@ -302,7 +302,7 @@ if (btnGemini) {
             
             // ========== PERGUNTAS SOBRE PROJETOS ==========
             else if (perguntaLower.includes('projeto') || perguntaLower.includes('github') || perguntaLower.includes('repositório') || perguntaLower.includes('criou') || perguntaLower.includes('desenvolveu') || perguntaLower.includes('tem projeto')) {
-                resposta = '🚀 <strong>Projetos em Destaque:</strong><br><br>📌 <strong>GitHub:</strong> https://github.com/celsohft<br><br>📌 <strong>Projeto Ações:</strong> Análise de dados financeiros com Python, integração de APIs e automação de indicadores.<br><br>📌 <strong>PortfolioHUB:</strong> Este portfólio profissional desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>Outros:</strong> Dashboards Power BI, automações VBA, aplicações low-code com FlutterFlow.';
+                resposta = '🚀 <strong>Projetos em Destaque:</strong><br><br>📌 <strong>GitHub:</strong> https://github.com/celsohft<br><br>📌 <strong>Projeto Ações:</strong> Site para acompanhar ações da B3 em tempo real, desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>PortfolioHUB:</strong> Este portfólio profissional desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>Outros:</strong> Dashboards Power BI, automações VBA, aplicações low-code com FlutterFlow.';
             }
             
             // ========== PERGUNTAS SOBRE CONTATO ==========
