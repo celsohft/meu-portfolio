@@ -391,71 +391,101 @@ if (btnGemini) {
 console.log('🤖 Assistente IA - Gemini ativado!');
 
 // ============================================
-// SLIDES - APRESENTAÇÃO INTERATIVA
+// SLIDES - APRESENTAÇÃO INTERATIVA (CORRIGIDO)
 // ============================================
 
-let currentSlide = 0;
-const slidesTrack = document.getElementById('slidesTrack');
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('slideDots');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
-
-// Criar os dots (indicadores)
-if (slides.length > 0 && dotsContainer) {
-    for (let i = 0; i < slides.length; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('slide-dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
+// Aguarda o DOM carregar completamente
+document.addEventListener('DOMContentLoaded', function() {
+    let currentSlide = 0;
+    const slidesTrack = document.getElementById('slidesTrack');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('slideDots');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    
+    // Verificar se os elementos existem
+    if (!slidesTrack || slides.length === 0) {
+        console.log('Slides não encontrados');
+        return;
     }
-}
-
-function updateSlides() {
-    if (slidesTrack) {
-        slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    console.log('Slides encontrados:', slides.length);
+    
+    // Criar os dots (indicadores)
+    if (dotsContainer) {
+        dotsContainer.innerHTML = ''; // Limpar dots existentes
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slide-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', (function(index) {
+                return function() { goToSlide(index); };
+            })(i));
+            dotsContainer.appendChild(dot);
+        }
     }
-    // Atualizar dots
-    const dots = document.querySelectorAll('.slide-dot');
-    dots.forEach((dot, index) => {
-        if (index === currentSlide) {
-            dot.classList.add('active');
+    
+    function updateSlides() {
+        if (slidesTrack) {
+            slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        // Atualizar dots
+        const dots = document.querySelectorAll('.slide-dot');
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            updateSlides();
         } else {
-            dot.classList.remove('active');
+            // Opcional: Voltar ao primeiro slide
+            // currentSlide = 0;
+            // updateSlides();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlides();
+        }
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlides();
+    }
+    
+    // Adicionar eventos aos botões
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+        console.log('Botão anterior configurado');
+    } else {
+        console.log('Botão anterior não encontrado');
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+        console.log('Botão próximo configurado');
+    } else {
+        console.log('Botão próximo não encontrado');
+    }
+    
+    // Teclas de navegação (setas do teclado)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
         }
     });
-}
-
-function nextSlide() {
-    if (currentSlide < slides.length - 1) {
-        currentSlide++;
-        updateSlides();
-    }
-}
-
-function prevSlide() {
-    if (currentSlide > 0) {
-        currentSlide--;
-        updateSlides();
-    }
-}
-
-function goToSlide(index) {
-    currentSlide = index;
-    updateSlides();
-}
-
-if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-
-// Teclas de navegação (setas do teclado)
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-        prevSlide();
-    } else if (e.key === 'ArrowRight') {
-        nextSlide();
-    }
+    
+    console.log('📊 Slides interativos carregados! Total de slides:', slides.length);
 });
-
-console.log('📊 Slides interativos carregados!');
