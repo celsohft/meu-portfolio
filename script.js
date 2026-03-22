@@ -22,8 +22,8 @@ if (hamburger) {
 // Fechar menu ao clicar em link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
     });
 });
 
@@ -256,92 +256,15 @@ cards.forEach(card => {
     });
 });
 
+console.log('✨ Portfólio Celso Takahashi carregado com sucesso! ✨');
+
 // ============================================
-// ASSISTENTE IA - GEMINI (SIMULAÇÃO)
+// ASSISTENTE IA - GEMINI (ADICIONADO NO FINAL)
 // ============================================
 
 const btnGemini = document.getElementById('btn-gemini');
 const perguntaGemini = document.getElementById('pergunta-gemini');
 const respostaGemini = document.getElementById('resposta-gemini');
-
-// Base de conhecimento do assistente
-const respostasPredefinidas = {
-    // Saudações
-    'oi': 'Olá! Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?',
-    'olá': 'Olá! Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?',
-    'ola': 'Olá! Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?',
-    'tudo bem': 'Estou bem, obrigado! E você? Como posso ajudar com o portfólio do Celso?',
-    
-    // Sobre Celso
-    'quem é': 'Meu nome é Celso Henrique F. Takahashi. Sou estudante de Engenharia de Software (4º semestre) na UniCEUB, Desenvolvedor Full Stack com mais de 30 certificações técnicas.',
-    'sobre': 'Celso é estudante de Engenharia de Software, desenvolvedor Full Stack com experiência em Python, JavaScript, Java, C#, e mais de 30 certificações técnicas.',
-    'apresente': 'Olá! Meu nome é Celso Henrique F. Takahashi, sou estudante de Engenharia de Software na UniCEUB e trabalho como Freelancer Full Stack Developer.',
-    
-    // Formação
-    'formação': 'Celso cursa Engenharia de Software na UniCEUB (4º semestre). Também tem Ensino Médio completo pelo Leonardo Da Vinci e inglês nível B2 pela Cultura Inglesa.',
-    'faculdade': 'UniCEUB - Engenharia de Software, 4º semestre (2024-2028).',
-    'universidade': 'Universidade UniCEUB, cursando Engenharia de Software.',
-    'ensino medio': 'Ensino Médio completo pela escola Leonardo Da Vinci (2020-2023).',
-    'ingles': 'Inglês nível intermediário B2 pela Cultura Inglesa (2021-2026).',
-    
-    // Habilidades
-    'habilidades': 'Celso tem mais de 30 certificações em Python, JavaScript, SQL, Power BI, AWS, Inteligência Artificial, automação com VBA e Power Automate, além de desenvolvimento Full Stack.',
-    'tecnologias': 'Principais tecnologias: Python, JavaScript, HTML5/CSS3, SQL, Java, C#, Power BI, AWS, FlutterFlow e Inteligência Artificial.',
-    'certificações': 'Mais de 30 certificações incluindo Python Impressionador, Full Stack Impressionador, Power BI, AWS, IA, VBA, Power Automate, entre outras.',
-    'cursos': 'Cursos: Python Impressionador, Full Stack, SQL, Power BI, AWS, IA, VBA, Power Automate, Análise de Dados, Excel, FlutterFlow, Make, entre outros.',
-    
-    // Experiência
-    'experiência': 'Celso trabalha como Freelancer Full Stack Developer desde 2024, desenvolvendo aplicações web, automações e manutenção de sistemas com Java, C#, Python e SQL.',
-    'freelancer': 'Trabalha como Freelancer Full Stack Developer desde 2024, com experiência em Java, C#, Python, SQL, desenvolvimento front-end e back-end.',
-    'empresa': 'Atua como Freelancer Full Stack Developer para empresas de TI desde 2024.',
-    
-    // Projetos
-    'projetos': 'Os projetos estão disponíveis no GitHub: https://github.com/celsohft. Destaque para o Projeto Ações, que analisa dados financeiros com Python.',
-    'github': 'GitHub: https://github.com/celsohft - repositórios com projetos Full Stack, automações e estudos.',
-    'projeto ações': 'Projeto Ações é uma análise de dados financeiros com integração de APIs e automação de indicadores usando Python.',
-    
-    // Contato
-    'contato': 'E-mail: celsokakashi@gmail.com | Telefone: (61) 9 8419-5834 | LinkedIn: https://www.linkedin.com/in/celso-takahashi-94a4aa388/',
-    'email': 'celsokakashi@gmail.com',
-    'telefone': '(61) 9 8419-5834',
-    'whatsapp': '(61) 9 8419-5834',
-    'linkedin': 'LinkedIn: https://www.linkedin.com/in/celso-takahashi-94a4aa388/',
-    
-    // Estágio
-    'estágio': 'Celso está buscando oportunidade de estágio na área de TI para aplicar suas habilidades técnicas e contribuir com projetos de impacto.',
-    'oportunidade': 'Busca estágio em TI para ampliar experiência prática e contribuir com soluções inovadoras.',
-    
-    // Soft Skills
-    'soft skills': 'Comunicação eficaz, adaptabilidade técnica, aprendizado autônomo, abertura a feedbacks, flexibilidade e colaboração.',
-    
-    // Site
-    'site': 'Este é o PortfolioHUB, um portfólio profissional desenvolvido com HTML, CSS e JavaScript, hospedado no GitHub Pages.',
-    'portfolio': 'Portfólio profissional desenvolvido para apresentar habilidades, experiências e projetos acadêmicos.',
-    
-    // Ajuda
-    'ajuda': 'Posso responder perguntas sobre: formação, habilidades, experiências, projetos, contato, certificações e estágio. O que gostaria de saber?',
-    'o que você sabe': 'Sei sobre a formação, habilidades, certificações, experiência profissional, projetos, contato e estágio do Celso. Pergunte-me qualquer coisa!',
-};
-
-function buscarResposta(pergunta) {
-    const perguntaLower = pergunta.toLowerCase();
-    
-    for (let [chave, resposta] of Object.entries(respostasPredefinidas)) {
-        if (perguntaLower.includes(chave)) {
-            return resposta;
-        }
-    }
-    
-    return `Desculpe, não entendi sua pergunta sobre "${pergunta}". 😊<br><br>Perguntas que posso responder:<br>
-    📌 Quem é Celso?<br>
-    📌 Formação / Faculdade / Ensino médio / Inglês<br>
-    📌 Habilidades / Tecnologias / Certificações<br>
-    📌 Experiência / Freelancer<br>
-    📌 Projetos / GitHub<br>
-    📌 Contato / E-mail / Telefone<br>
-    📌 Estágio / Oportunidade<br>
-    📌 Soft skills / Ajuda`;
-}
 
 if (btnGemini) {
     btnGemini.addEventListener('click', () => {
@@ -354,7 +277,65 @@ if (btnGemini) {
         respostaGemini.innerHTML = '🤔 Processando sua pergunta...';
         
         setTimeout(() => {
-            const resposta = buscarResposta(pergunta);
+            const perguntaLower = pergunta.toLowerCase();
+            let resposta = '';
+            
+            // Formação
+            if (perguntaLower.includes('formação') || perguntaLower.includes('faculdade') || perguntaLower.includes('universidade')) {
+                resposta = 'Celso cursa Engenharia de Software na UniCEUB (4º semestre). Também tem Ensino Médio completo pelo Leonardo Da Vinci e inglês nível B2 pela Cultura Inglesa.';
+            }
+            // Habilidades
+            else if (perguntaLower.includes('habilidade') || perguntaLower.includes('tecnologia') || perguntaLower.includes('stack') || perguntaLower.includes('programa')) {
+                resposta = 'Celso tem mais de 30 certificações em Python, JavaScript, SQL, Power BI, AWS, Inteligência Artificial, automação com VBA e Power Automate, além de desenvolvimento Full Stack.';
+            }
+            // Certificações
+            else if (perguntaLower.includes('certificação') || perguntaLower.includes('curso') || perguntaLower.includes('certificado')) {
+                resposta = 'Mais de 30 certificações incluindo Python Impressionador, Full Stack Impressionador, Power BI, AWS, IA, VBA, Power Automate, Análise de Dados, Excel, FlutterFlow, Make, entre outros.';
+            }
+            // Experiência
+            else if (perguntaLower.includes('experiência') || perguntaLower.includes('freelancer') || perguntaLower.includes('trabalho') || perguntaLower.includes('empresa')) {
+                resposta = 'Celso trabalha como Freelancer Full Stack Developer desde 2024, desenvolvendo aplicações web, automações e manutenção de sistemas com Java, C#, Python e SQL.';
+            }
+            // Projetos
+            else if (perguntaLower.includes('projeto') || perguntaLower.includes('github') || perguntaLower.includes('repositório')) {
+                resposta = 'Os projetos estão disponíveis no GitHub: https://github.com/celsohft. Destaque para o Projeto Ações, que analisa dados financeiros com Python.';
+            }
+            // Contato
+            else if (perguntaLower.includes('contato') || perguntaLower.includes('email') || perguntaLower.includes('telefone') || perguntaLower.includes('whatsapp')) {
+                resposta = 'E-mail: celsokakashi@gmail.com | Telefone: (61) 9 8419-5834 | LinkedIn: https://www.linkedin.com/in/celso-takahashi-94a4aa388/';
+            }
+            // Estágio
+            else if (perguntaLower.includes('estágio') || perguntaLower.includes('oportunidade') || perguntaLower.includes('emprego')) {
+                resposta = 'Celso está buscando oportunidade de estágio na área de TI para aplicar suas habilidades técnicas e contribuir com projetos de impacto.';
+            }
+            // Soft Skills
+            else if (perguntaLower.includes('soft skill') || perguntaLower.includes('comportamento')) {
+                resposta = 'Comunicação eficaz, adaptabilidade técnica, aprendizado autônomo, abertura a feedbacks, flexibilidade e colaboração.';
+            }
+            // Quem é
+            else if (perguntaLower.includes('quem é') || perguntaLower.includes('sobre') || perguntaLower.includes('apresente')) {
+                resposta = 'Meu nome é Celso Henrique F. Takahashi. Sou estudante de Engenharia de Software (4º semestre) na UniCEUB, Desenvolvedor Full Stack com mais de 30 certificações técnicas.';
+            }
+            // Ajuda
+            else if (perguntaLower.includes('ajuda') || perguntaLower.includes('o que você sabe')) {
+                resposta = 'Posso responder perguntas sobre: formação, habilidades, certificações, experiências, projetos, contato, estágio e soft skills. O que gostaria de saber?';
+            }
+            // Saudações
+            else if (perguntaLower.includes('oi') || perguntaLower.includes('olá') || perguntaLower.includes('ola')) {
+                resposta = 'Olá! Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?';
+            }
+            // Inglês
+            else if (perguntaLower.includes('inglês') || perguntaLower.includes('ingles')) {
+                resposta = 'Celso possui inglês nível intermediário B2 pela Cultura Inglesa (2021-2026), com fluência técnica para leitura de documentação e comunicação profissional.';
+            }
+            // Ensino Médio
+            else if (perguntaLower.includes('ensino médio') || perguntaLower.includes('medio')) {
+                resposta = 'Ensino Médio completo pela escola Leonardo Da Vinci (2020-2023), com formação acadêmica com ênfase em tecnologias e inovação.';
+            }
+            else {
+                resposta = `Desculpe, não entendi sua pergunta sobre "${pergunta}". 😊<br><br>Perguntas que posso responder:<br>📌 Quem é Celso?<br>📌 Formação / Faculdade<br>📌 Habilidades / Tecnologias<br>📌 Certificações / Cursos<br>📌 Experiência / Freelancer<br>📌 Projetos / GitHub<br>📌 Contato / E-mail<br>📌 Estágio / Oportunidade<br>📌 Soft skills<br>📌 Inglês / Ensino Médio`;
+            }
+            
             respostaGemini.innerHTML = `💬 <strong>Você perguntou:</strong> "${pergunta}"<br><br>🤖 <strong>Resposta:</strong> ${resposta}`;
             perguntaGemini.value = '';
         }, 500);
@@ -367,5 +348,4 @@ if (btnGemini) {
     });
 }
 
-console.log('✨ Portfólio Celso Takahashi carregado com sucesso! ✨');
 console.log('🤖 Assistente IA - Gemini ativado!');
