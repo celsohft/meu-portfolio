@@ -252,3 +252,26 @@ cd meu-portfolio
 
 # Abra o arquivo index.html no navegador
 # Ou utilize uma extensão como Live Server no VS Code
+👤 Autor
+Celso Henrique F. Takahashi
+
+Rede	Link
+GitHub	@celsohft
+LinkedIn	Celso Takahashi
+E-mail	celsokakashi@gmail.com
+Telefone	(61) 9 8419-5834
+📄 Licença
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+🙏 Agradecimentos
+Google Gemini - Assistente IA que auxiliou no desenvolvimento
+
+GitHub - Plataforma de hospedagem e versionamento
+
+UniCEUB - Instituição de ensino que proporcionou este desafio
+
+📅 Histórico de Versões
+Versão	Data	Descrição
+1.0.0	22/03/2026	Lançamento inicial do PortfolioHUB
+1.1.0	22/03/2026	Adicionada integração com Google Gemini
+1.2.0	22/03/2026	Implementadas políticas de segurança
