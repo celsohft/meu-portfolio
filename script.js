@@ -259,7 +259,7 @@ cards.forEach(card => {
 console.log('✨ Portfólio Celso Takahashi carregado com sucesso! ✨');
 
 // ============================================
-// ASSISTENTE IA - GEMINI (ADICIONADO NO FINAL)
+// ASSISTENTE IA - GEMINI (VERSÃO MELHORADA)
 // ============================================
 
 const btnGemini = document.getElementById('btn-gemini');
@@ -280,63 +280,77 @@ if (btnGemini) {
             const perguntaLower = pergunta.toLowerCase();
             let resposta = '';
             
-            // Formação
-            if (perguntaLower.includes('formação') || perguntaLower.includes('faculdade') || perguntaLower.includes('universidade')) {
-                resposta = 'Celso cursa Engenharia de Software na UniCEUB (4º semestre). Também tem Ensino Médio completo pelo Leonardo Da Vinci e inglês nível B2 pela Cultura Inglesa.';
-            }
-            // Habilidades
-            else if (perguntaLower.includes('habilidade') || perguntaLower.includes('tecnologia') || perguntaLower.includes('stack') || perguntaLower.includes('programa')) {
-                resposta = 'Celso tem mais de 30 certificações em Python, JavaScript, SQL, Power BI, AWS, Inteligência Artificial, automação com VBA e Power Automate, além de desenvolvimento Full Stack.';
-            }
-            // Certificações
-            else if (perguntaLower.includes('certificação') || perguntaLower.includes('curso') || perguntaLower.includes('certificado')) {
-                resposta = 'Mais de 30 certificações incluindo Python Impressionador, Full Stack Impressionador, Power BI, AWS, IA, VBA, Power Automate, Análise de Dados, Excel, FlutterFlow, Make, entre outros.';
-            }
-            // Experiência
-            else if (perguntaLower.includes('experiência') || perguntaLower.includes('freelancer') || perguntaLower.includes('trabalho') || perguntaLower.includes('empresa')) {
-                resposta = 'Celso trabalha como Freelancer Full Stack Developer desde 2024, desenvolvendo aplicações web, automações e manutenção de sistemas com Java, C#, Python e SQL.';
-            }
-            // Projetos
-            else if (perguntaLower.includes('projeto') || perguntaLower.includes('github') || perguntaLower.includes('repositório')) {
-                resposta = 'Os projetos estão disponíveis no GitHub: https://github.com/celsohft. Destaque para o Projeto Ações, que analisa dados financeiros com Python.';
-            }
-            // Contato
-            else if (perguntaLower.includes('contato') || perguntaLower.includes('email') || perguntaLower.includes('telefone') || perguntaLower.includes('whatsapp')) {
-                resposta = 'E-mail: celsokakashi@gmail.com | Telefone: (61) 9 8419-5834 | LinkedIn: https://www.linkedin.com/in/celso-takahashi-94a4aa388/';
-            }
-            // Estágio
-            else if (perguntaLower.includes('estágio') || perguntaLower.includes('oportunidade') || perguntaLower.includes('emprego')) {
-                resposta = 'Celso está buscando oportunidade de estágio na área de TI para aplicar suas habilidades técnicas e contribuir com projetos de impacto.';
-            }
-            // Soft Skills
-            else if (perguntaLower.includes('soft skill') || perguntaLower.includes('comportamento')) {
-                resposta = 'Comunicação eficaz, adaptabilidade técnica, aprendizado autônomo, abertura a feedbacks, flexibilidade e colaboração.';
-            }
-            // Quem é
-            else if (perguntaLower.includes('quem é') || perguntaLower.includes('sobre') || perguntaLower.includes('apresente')) {
-                resposta = 'Meu nome é Celso Henrique F. Takahashi. Sou estudante de Engenharia de Software (4º semestre) na UniCEUB, Desenvolvedor Full Stack com mais de 30 certificações técnicas.';
-            }
-            // Ajuda
-            else if (perguntaLower.includes('ajuda') || perguntaLower.includes('o que você sabe')) {
-                resposta = 'Posso responder perguntas sobre: formação, habilidades, certificações, experiências, projetos, contato, estágio e soft skills. O que gostaria de saber?';
-            }
-            // Saudações
-            else if (perguntaLower.includes('oi') || perguntaLower.includes('olá') || perguntaLower.includes('ola')) {
-                resposta = 'Olá! Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?';
-            }
-            // Inglês
-            else if (perguntaLower.includes('inglês') || perguntaLower.includes('ingles')) {
-                resposta = 'Celso possui inglês nível intermediário B2 pela Cultura Inglesa (2021-2026), com fluência técnica para leitura de documentação e comunicação profissional.';
-            }
-            // Ensino Médio
-            else if (perguntaLower.includes('ensino médio') || perguntaLower.includes('medio')) {
-                resposta = 'Ensino Médio completo pela escola Leonardo Da Vinci (2020-2023), com formação acadêmica com ênfase em tecnologias e inovação.';
-            }
-            else {
-                resposta = `Desculpe, não entendi sua pergunta sobre "${pergunta}". 😊<br><br>Perguntas que posso responder:<br>📌 Quem é Celso?<br>📌 Formação / Faculdade<br>📌 Habilidades / Tecnologias<br>📌 Certificações / Cursos<br>📌 Experiência / Freelancer<br>📌 Projetos / GitHub<br>📌 Contato / E-mail<br>📌 Estágio / Oportunidade<br>📌 Soft skills<br>📌 Inglês / Ensino Médio`;
+            // ========== PERGUNTAS SOBRE EXPERIÊNCIA ==========
+            if (perguntaLower.includes('experiência') || perguntaLower.includes('trabalho') || perguntaLower.includes('fez') || perguntaLower.includes('atuou') || perguntaLower.includes('profissional') || perguntaLower.includes('qual a experiência')) {
+                resposta = 'Celso trabalha como <strong>Freelancer Full Stack Developer</strong> desde 2024. Suas principais atividades incluem:<br><br>✅ Manutenção e melhoria contínua de sistemas<br>✅ Desenvolvimento com Java, C#, Python e SQL<br>✅ Documentação técnica detalhada<br>✅ Criação de relatórios estratégicos<br>✅ Atendimento direto a clientes e sugestões de melhorias';
             }
             
-            respostaGemini.innerHTML = `💬 <strong>Você perguntou:</strong> "${pergunta}"<br><br>🤖 <strong>Resposta:</strong> ${resposta}`;
+            // ========== PERGUNTAS SOBRE FORMAÇÃO ==========
+            else if (perguntaLower.includes('formação') || perguntaLower.includes('faculdade') || perguntaLower.includes('universidade') || perguntaLower.includes('estuda') || perguntaLower.includes('onde estuda') || perguntaLower.includes('cursa') || perguntaLower.includes('onde ele estuda')) {
+                resposta = '🎓 <strong>Formação Acadêmica:</strong><br><br>📚 <strong>Engenharia de Software</strong> - UniCEUB (2024-2028)<br>📖 4º semestre cursando<br><br>📚 <strong>Ensino Médio</strong> - Leonardo Da Vinci (2020-2023)<br>🇬🇧 <strong>Inglês B2</strong> - Cultura Inglesa (2021-2026)';
+            }
+            
+            // ========== PERGUNTAS SOBRE HABILIDADES ==========
+            else if (perguntaLower.includes('habilidade') || perguntaLower.includes('sabe fazer') || perguntaLower.includes('tecnologia') || perguntaLower.includes('programa') || perguntaLower.includes('linguagem') || perguntaLower.includes('stack') || perguntaLower.includes('o que ele sabe')) {
+                resposta = '💻 <strong>Principais Habilidades Técnicas:</strong><br><br>🔹 <strong>Back-end:</strong> Python, Java, C#, SQL, APIs REST<br>🔹 <strong>Front-end:</strong> JavaScript, HTML5, CSS3<br>🔹 <strong>Dados:</strong> Power BI, Análise de Dados<br>🔹 <strong>Automação:</strong> VBA, Power Automate, Make<br>🔹 <strong>Cloud:</strong> AWS (Fundamentos)<br>🔹 <strong>IA:</strong> Inteligência Artificial, APIs de IA<br>🔹 <strong>No-Code:</strong> FlutterFlow, Power Apps';
+            }
+            
+            // ========== PERGUNTAS SOBRE CERTIFICAÇÕES ==========
+            else if (perguntaLower.includes('certificação') || perguntaLower.includes('curso') || perguntaLower.includes('certificado') || perguntaLower.includes('formação complementar') || perguntaLower.includes('tem certificado')) {
+                resposta = '📜 <strong>Certificações e Cursos (30+):</strong><br><br>✅ Python Impressionador<br>✅ Full Stack Impressionador<br>✅ SQL Impressionador<br>✅ Power BI Impressionador<br>✅ AWS Impressionador<br>✅ IA Impressionador<br>✅ VBA Impressionador<br>✅ Power Automate<br>✅ FlutterFlow Impressionador<br>✅ Make (Integromat)<br>✅ Trilha NoCodeIA<br>✅ Análise de Dados<br>✅ Excel Impressionador';
+            }
+            
+            // ========== PERGUNTAS SOBRE PROJETOS ==========
+            else if (perguntaLower.includes('projeto') || perguntaLower.includes('github') || perguntaLower.includes('repositório') || perguntaLower.includes('criou') || perguntaLower.includes('desenvolveu') || perguntaLower.includes('tem projeto')) {
+                resposta = '🚀 <strong>Projetos em Destaque:</strong><br><br>📌 <strong>GitHub:</strong> https://github.com/celsohft<br><br>📌 <strong>Projeto Ações:</strong> Análise de dados financeiros com Python, integração de APIs e automação de indicadores.<br><br>📌 <strong>PortfolioHUB:</strong> Este portfólio profissional desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>Outros:</strong> Dashboards Power BI, automações VBA, aplicações low-code com FlutterFlow.';
+            }
+            
+            // ========== PERGUNTAS SOBRE CONTATO ==========
+            else if (perguntaLower.includes('contato') || perguntaLower.includes('email') || perguntaLower.includes('telefone') || perguntaLower.includes('whatsapp') || perguntaLower.includes('falar') || perguntaLower.includes('entrar em contato') || perguntaLower.includes('como falar')) {
+                resposta = '📞 <strong>Contato:</strong><br><br>📧 <strong>E-mail:</strong> celsokakashi@gmail.com<br>📱 <strong>Telefone/WhatsApp:</strong> (61) 9 8419-5834<br>🔗 <strong>LinkedIn:</strong> https://www.linkedin.com/in/celso-takahashi-94a4aa388/<br>💻 <strong>GitHub:</strong> https://github.com/celsohft';
+            }
+            
+            // ========== PERGUNTAS SOBRE ESTÁGIO ==========
+            else if (perguntaLower.includes('estágio') || perguntaLower.includes('oportunidade') || perguntaLower.includes('emprego') || perguntaLower.includes('vaga') || perguntaLower.includes('procura') || perguntaLower.includes('busca')) {
+                resposta = '🎯 <strong>Busca por Estágio:</strong><br><br>Celso está buscando oportunidade de estágio na área de <strong>Tecnologia da Informação (TI)</strong>.<br><br><strong>Objetivo:</strong> Aplicar suas habilidades técnicas, versatilidade e capacidade de aprendizado acelerado em projetos de impacto na área de desenvolvimento de software, análise de dados ou automação.';
+            }
+            
+            // ========== PERGUNTAS SOBRE SOFT SKILLS ==========
+            else if (perguntaLower.includes('soft skill') || perguntaLower.includes('comportamento') || perguntaLower.includes('qualidades') || perguntaLower.includes('perfil')) {
+                resposta = '🌟 <strong>Soft Skills:</strong><br><br>✅ Comunicação eficaz<br>✅ Adaptabilidade técnica<br>✅ Aprendizado autônomo e rápido<br>✅ Abertura a feedbacks construtivos<br>✅ Flexibilidade diante de mudanças<br>✅ Colaboração em equipes multidisciplinares';
+            }
+            
+            // ========== PERGUNTAS SOBRE QUEM É ==========
+            else if (perguntaLower.includes('quem é') || perguntaLower.includes('sobre') || perguntaLower.includes('apresente') || perguntaLower.includes('quem é celso')) {
+                resposta = '👨‍💻 <strong>Sobre Celso:</strong><br><br>Meu nome é <strong>Celso Henrique F. Takahashi</strong>. Sou estudante de <strong>Engenharia de Software</strong> (4º semestre) na UniCEUB, <strong>Desenvolvedor Full Stack</strong> com mais de <strong>30 certificações técnicas</strong>. Tenho experiência em criação de aplicações web responsivas, automações inteligentes e integração de APIs de IA. Busco oportunidade de estágio para aplicar minha versatilidade técnica e capacidade de aprendizado acelerado.';
+            }
+            
+            // ========== PERGUNTAS SOBRE INGLÊS ==========
+            else if (perguntaLower.includes('inglês') || perguntaLower.includes('ingles') || perguntaLower.includes('fala inglês') || perguntaLower.includes('sabe inglês')) {
+                resposta = '🇬🇧 <strong>Inglês:</strong><br><br>Celso possui inglês nível <strong>intermediário B2</strong> pela <strong>Cultura Inglesa</strong> (2021-2026).<br><br>✅ Fluência técnica para leitura de documentação<br>✅ Comunicação profissional<br>✅ Compreensão de textos técnicos em inglês';
+            }
+            
+            // ========== PERGUNTAS SOBRE ENSINO MÉDIO ==========
+            else if (perguntaLower.includes('ensino médio') || perguntaLower.includes('medio') || perguntaLower.includes('segundo grau')) {
+                resposta = '📚 <strong>Ensino Médio:</strong><br><br>Ensino Médio completo pela escola <strong>Leonardo Da Vinci</strong> (2020-2023), com formação acadêmica com ênfase em tecnologias e inovação.';
+            }
+            
+            // ========== PERGUNTAS SOBRE AJUDA ==========
+            else if (perguntaLower.includes('ajuda') || perguntaLower.includes('o que você sabe') || perguntaLower.includes('o que pode fazer')) {
+                resposta = '🤖 <strong>Como posso ajudar:</strong><br><br>Posso responder perguntas sobre:<br><br>📌 <strong>Quem é Celso</strong> (apresentação)<br>📌 <strong>Formação acadêmica</strong> (faculdade, inglês, ensino médio)<br>📌 <strong>Habilidades técnicas</strong> (tecnologias, stacks)<br>📌 <strong>Certificações e cursos</strong><br>📌 <strong>Experiência profissional</strong><br>📌 <strong>Projetos no GitHub</strong><br>📌 <strong>Contato</strong> (e-mail, telefone)<br>📌 <strong>Estágio e oportunidades</strong><br>📌 <strong>Soft skills</strong><br><br>Pergunte de forma natural! 😊';
+            }
+            
+            // ========== SAUDAÇÕES ==========
+            else if (perguntaLower.includes('oi') || perguntaLower.includes('olá') || perguntaLower.includes('ola') || perguntaLower.includes('bom dia') || perguntaLower.includes('boa tarde') || perguntaLower.includes('boa noite')) {
+                resposta = 'Olá! 😊 Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?<br><br>Pergunte sobre formação, habilidades, projetos, experiência ou contato do Celso.';
+            }
+            
+            // ========== RESPOSTA PADRÃO ==========
+            else {
+                resposta = `🤔 <strong>Não entendi sua pergunta sobre "${pergunta}".</strong><br><br>Mas posso ajudar com perguntas como:<br><br>📌 "Qual a experiência do Celso?"<br>📌 "Onde ele estuda?"<br>📌 "O que ele sabe fazer?"<br>📌 "Quais projetos ele tem?"<br>📌 "Como entro em contato?"<br>📌 "Ele está procurando estágio?"<br><br>Tente perguntar de forma natural! 😊`;
+            }
+            
+            respostaGemini.innerHTML = `💬 <strong>Você perguntou:</strong> "${pergunta}"<br><br>🤖 <strong>Resposta:</strong><br>${resposta}`;
             perguntaGemini.value = '';
         }, 500);
     });
