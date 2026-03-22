@@ -347,6 +347,64 @@
             color: #94a3b8;
             border: 1px solid #2d3a4a;
         }
+        
+        /* Estilos para os slides */
+        .slides-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .slides-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            background: linear-gradient(135deg, #0f1117, #1e293b);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3b82f6;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        .slide-btn:hover {
+            background: #60a5fa;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .slide-btn.prev { left: 10px; }
+        .slide-btn.next { right: 10px; }
+        .slide-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .slide-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #475569;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .slide-dot.active {
+            background: #3b82f6;
+            width: 25px;
+            border-radius: 5px;
+        }
+        
         @media (max-width: 700px) {
             .container {
                 padding: 1rem;
@@ -356,6 +414,9 @@
             }
             .card {
                 padding: 1.3rem;
+            }
+            .slide {
+                padding: 1.5rem;
             }
         }
         @keyframes fadeInUp {
@@ -380,6 +441,7 @@
         <a href="#formacao">Formação</a>
         <a href="#habilidades">Habilidades</a>
         <a href="#projetos">Projetos</a>
+        <a href="#slides">Apresentação</a>
         <a href="#seguranca">Segurança</a>
         <a href="#gemini">Assistente IA</a>
         <a href="#contato">Contato</a>
@@ -547,6 +609,102 @@
             </div>
             <div class="highlight-text" style="margin-top: 1.5rem;">
                 <i class="fas fa-tools"></i> Outros projetos: dashboards Power BI, automação VBA, aplicações low-code com FlutterFlow, integração de APIs de IA e fluxos no Make.
+            </div>
+        </div>
+
+        <!-- SEÇÃO DE APRESENTAÇÃO COM SLIDES -->
+        <div class="card" id="slides">
+            <div class="section-header">
+                <i class="fas fa-chalkboard-user"></i>
+                <h2>Apresentação - PortfolioHUB</h2>
+            </div>
+            
+            <div class="slides-container" style="position: relative; overflow: hidden; border-radius: 1rem;">
+                <button class="slide-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="slides-track" id="slidesTrack">
+                    <!-- SLIDE 1 - Capa -->
+                    <div class="slide">
+                        <div style="text-align: center;">
+                            <i class="fas fa-laptop-code" style="font-size: 4rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">PortfolioHUB</h1>
+                            <p style="color: #94a3b8; font-size: 1.2rem;">Celso Henrique F. Takahashi</p>
+                            <div style="margin-top: 2rem;">
+                                <span style="background: #3b82f6; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem;">Engenharia de Software</span>
+                                <span style="background: #10b981; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem;">Full Stack Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SLIDE 2 - Sobre Mim -->
+                    <div class="slide">
+                        <h2 style="color: #3b82f6; margin-bottom: 1rem;">📌 Sobre Mim</h2>
+                        <p style="color: #cbd5e1; line-height: 1.6;">Estudante de Engenharia de Software (4º semestre) na UniCEUB. Desenvolvedor Full Stack com mais de 30 certificações técnicas. Buscando estágio em TI para aplicar minha versatilidade técnica.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <p><i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>Formação:</strong> UniCEUB (2024-2028)</p>
+                            <p><i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>Inglês:</strong> B2 - Cultura Inglesa</p>
+                            <p><i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>Objetivo:</strong> Estágio em TI</p>
+                        </div>
+                    </div>
+                    
+                    <!-- SLIDE 3 - Habilidades Técnicas -->
+                    <div class="slide">
+                        <h2 style="color: #3b82f6; margin-bottom: 1rem;">💻 Habilidades Técnicas</h2>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">Python</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">JavaScript</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">Java</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">C#</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">SQL</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">Power BI</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">AWS</span>
+                            <span style="background: #1e293b; padding: 0.4rem 0.8rem; border-radius: 20px;">IA</span>
+                        </div>
+                        <p style="color: #94a3b8;">+30 certificações técnicas</p>
+                    </div>
+                    
+                    <!-- SLIDE 4 - Projetos -->
+                    <div class="slide">
+                        <h2 style="color: #3b82f6; margin-bottom: 1rem;">🚀 Projetos em Destaque</h2>
+                        <div style="margin-bottom: 1rem;">
+                            <p><i class="fab fa-github" style="color: #3b82f6;"></i> <strong>GitHub:</strong> github.com/celsohft</p>
+                            <p><i class="fas fa-chart-line" style="color: #3b82f6;"></i> <strong>Projeto Ações:</strong> Site para acompanhar ações da B3</p>
+                            <p><i class="fas fa-code" style="color: #3b82f6;"></i> <strong>PortfolioHUB:</strong> Portfólio profissional</p>
+                        </div>
+                        <div class="highlight-text" style="margin-top: 1rem;">
+                            <i class="fas fa-tools"></i> Dashboards Power BI, automações VBA, aplicações low-code
+                        </div>
+                    </div>
+                    
+                    <!-- SLIDE 5 - Certificações -->
+                    <div class="slide">
+                        <h2 style="color: #3b82f6; margin-bottom: 1rem;">🎓 Certificações</h2>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                            <span style="background: #1e293b; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Python Impressionador</span>
+                            <span style="background: #1e293b; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Full Stack Impressionador</span>
+                            <span style="background: #1e293b; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Power BI Impressionador</span>
+                            <span style="background: #1e293b; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">AWS Impressionador</span>
+                            <span style="background: #1e293b; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">IA Impressionador</span>
+                        </div>
+                        <p style="margin-top: 1rem; color: #94a3b8;">+30 certificações no total</p>
+                    </div>
+                    
+                    <!-- SLIDE 6 - Contato -->
+                    <div class="slide">
+                        <h2 style="color: #3b82f6; margin-bottom: 1rem;">📞 Contato</h2>
+                        <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong> celsokakashi@gmail.com</p>
+                        <p><i class="fab fa-whatsapp"></i> <strong>Telefone:</strong> (61) 9 8419-5834</p>
+                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> linkedin.com/in/celso-takahashi</p>
+                        <p><i class="fab fa-github"></i> <strong>GitHub:</strong> github.com/celsohft</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="https://github.com/celsohft" target="_blank" style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none;">Visitar GitHub</a>
+                            <a href="https://www.linkedin.com/in/celso-takahashi-94a4aa388/" target="_blank" style="background: #0a66c2; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; margin-left: 0.5rem;">Conectar no LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-dots" id="slideDots"></div>
             </div>
         </div>
 
