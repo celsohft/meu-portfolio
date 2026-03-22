@@ -300,7 +300,7 @@ if (btnGemini) {
                 resposta = '📜 <strong>Certificações e Cursos (30+):</strong><br><br>✅ Python Impressionador<br>✅ Full Stack Impressionador<br>✅ SQL Impressionador<br>✅ Power BI Impressionador<br>✅ AWS Impressionador<br>✅ IA Impressionador<br>✅ VBA Impressionador<br>✅ Power Automate<br>✅ FlutterFlow Impressionador<br>✅ Make (Integromat)<br>✅ Trilha NoCodeIA<br>✅ Análise de Dados<br>✅ Excel Impressionador';
             }
             
-            // ========== PERGUNTAS SOBRE PROJETOS (CORRIGIDO) ==========
+            // ========== PERGUNTAS SOBRE PROJETOS ==========
             else if (perguntaLower.includes('projeto') || perguntaLower.includes('github') || perguntaLower.includes('repositório') || perguntaLower.includes('criou') || perguntaLower.includes('desenvolveu') || perguntaLower.includes('tem projeto')) {
                 resposta = '🚀 <strong>Projetos em Destaque:</strong><br><br>📌 <strong>GitHub:</strong> https://github.com/celsohft<br><br>📌 <strong>Projeto Ações:</strong> Site para acompanhar ações da B3 em tempo real, desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>PortfolioHUB:</strong> Este portfólio profissional desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>Outros:</strong> Dashboards Power BI, automações VBA, aplicações low-code com FlutterFlow.';
             }
