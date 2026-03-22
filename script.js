@@ -1,4 +1,6 @@
-// Navbar scroll effect
+// ============================================
+// NAVBAR SCROLL EFFECT
+// ============================================
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -8,7 +10,9 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Menu Mobile
+// ============================================
+// MENU MOBILE
+// ============================================
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -27,7 +31,9 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Scroll suave
+// ============================================
+// SCROLL SUAVE
+// ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -46,7 +52,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Typed Text Effect
+// ============================================
+// TYPED TEXT EFFECT
+// ============================================
 const typedTexts = ['Desenvolvedor Full Stack', 'Engenheiro de Software', 'Analista de Dados', 'Entusiasta de IA'];
 let typedIndex = 0;
 let charIndex = 0;
@@ -86,7 +94,9 @@ if (typedElement) {
     typeEffect();
 }
 
-// Animate numbers on scroll
+// ============================================
+// ANIMATE NUMBERS ON SCROLL
+// ============================================
 const statNumbers = document.querySelectorAll('.stat-number');
 let animated = false;
 
@@ -111,7 +121,9 @@ function animateNumbers() {
     animated = true;
 }
 
-// Animate level bars
+// ============================================
+// ANIMATE LEVEL BARS
+// ============================================
 function animateLevelBars() {
     const levelBars = document.querySelectorAll('.level-fill');
     levelBars.forEach(bar => {
@@ -125,7 +137,9 @@ function animateLevelBars() {
     });
 }
 
-// Intersection Observer
+// ============================================
+// INTERSECTION OBSERVER
+// ============================================
 const observerOptions = {
     threshold: 0.2,
     rootMargin: '0px 0px -50px 0px'
@@ -145,10 +159,12 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements
 document.querySelectorAll('.stat-item, .projeto-card, .formacao-card, .timeline-item, .skill-category, .cert-group, .language-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+    if (el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    }
 });
 
 // Observar seção de habilidades
@@ -165,7 +181,9 @@ if (skillsSection) {
     skillsObserver.observe(skillsSection);
 }
 
-// Project filter
+// ============================================
+// PROJECT FILTER
+// ============================================
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projects = document.querySelectorAll('.projeto-card');
 
@@ -194,7 +212,9 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Contact form
+// ============================================
+// CONTACT FORM
+// ============================================
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -204,7 +224,9 @@ if (contactForm) {
     });
 }
 
-// Back to top button
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
 const backToTop = document.createElement('button');
 backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
 backToTop.id = 'backToTop';
@@ -225,7 +247,9 @@ backToTop.addEventListener('click', () => {
     });
 });
 
-// Active nav link on scroll
+// ============================================
+// ACTIVE NAV LINK ON SCROLL
+// ============================================
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -248,7 +272,9 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add hover animation to cards
+// ============================================
+// ADD HOVER ANIMATION TO CARDS
+// ============================================
 const cards = document.querySelectorAll('.glass-card');
 cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
@@ -363,3 +389,73 @@ if (btnGemini) {
 }
 
 console.log('🤖 Assistente IA - Gemini ativado!');
+
+// ============================================
+// SLIDES - APRESENTAÇÃO INTERATIVA
+// ============================================
+
+let currentSlide = 0;
+const slidesTrack = document.getElementById('slidesTrack');
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('slideDots');
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
+
+// Criar os dots (indicadores)
+if (slides.length > 0 && dotsContainer) {
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('slide-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+}
+
+function updateSlides() {
+    if (slidesTrack) {
+        slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    // Atualizar dots
+    const dots = document.querySelectorAll('.slide-dot');
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlides();
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 0) {
+        currentSlide--;
+        updateSlides();
+    }
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlides();
+}
+
+if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+// Teclas de navegação (setas do teclado)
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        prevSlide();
+    } else if (e.key === 'ArrowRight') {
+        nextSlide();
+    }
+});
+
+console.log('📊 Slides interativos carregados!');
