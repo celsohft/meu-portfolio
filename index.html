@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celso Takahashi | Engenheiro de Software & Full Stack Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celso Takahashi | Engenheiro de Software</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- NAVBAR -->
+
+    <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="#home" class="logo">
                 <span class="logo-icon">CT</span>
-                <span class="logo-text"><span>Celso</span> Takahashi</span>
+                <span class="logo-text">Celso <span>Takahashi</span></span>
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Início</a></li>
@@ -25,155 +26,136 @@
                 <li><a href="#formacao" class="nav-link">Formação</a></li>
                 <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
                 <li><a href="#projetos" class="nav-link">Projetos</a></li>
-                <li><a href="#slides" class="nav-link">Apresentação</a></li>
                 <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- ========== HERO ========== -->
     <section class="hero" id="home">
-        <div class="hero-overlay"></div>
+        <div class="hero-bg"></div>
         <div class="container hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
-                    <span class="badge-pulse"></span>
-                    Disponível para estágio
+                    <span class="dot"></span> Disponível para estágio
                 </div>
-                <h1>Celso Henrique <br><span class="highlight">F. Takahashi</span></h1>
-                <div class="typed-wrapper">
+                <h1>Celso Henrique <br /><span class="gradient-text">F. Takahashi</span></h1>
+                <div class="hero-typed">
                     <span id="typed-text"></span><span class="cursor">|</span>
                 </div>
-                <p>Estudante de Engenharia de Software • Full Stack Developer • IA & Automação</p>
+                <p>Estudante de Engenharia de Software • Full Stack Developer • IA &amp; Automação</p>
                 <div class="hero-buttons">
                     <a href="#contato" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Vamos conversar</a>
                     <a href="#projetos" class="btn btn-secondary"><i class="fas fa-code"></i> Ver projetos</a>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/celsohft" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/celso-takahashi-94a4aa388/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:celsokakashi@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+61984195834" class="social-icon"><i class="fas fa-phone-alt"></i></a>
+                <div class="hero-social">
+                    <a href="https://github.com/celsohft" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/celso-takahashi-94a4aa388/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:celsokakashi@gmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+61984195834" aria-label="Telefone"><i class="fas fa-phone-alt"></i></a>
                 </div>
             </div>
-            <div class="profile-card">
-                <div class="profile-image">
-                    <div class="profile-initial">CT</div>
-                    <div class="profile-ring"></div>
+            <div class="hero-card">
+                <div class="hero-avatar">
+                    <span>CT</span>
+                    <div class="ring"></div>
                 </div>
-                <h3 style="color: white;">Celso Takahashi</h3>
-                <p style="color: rgba(255,255,255,0.8);">Engenheiro de Software</p>
-                <div style="margin-top: 1rem; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
-                    <i class="fas fa-map-marker-alt"></i> Lago Norte - Brasília DF
+                <h3>Celso Takahashi</h3>
+                <p>Engenheiro de Software</p>
+                <div class="hero-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Lago Norte - Brasília DF</span>
+                    <span><i class="fas fa-graduation-cap"></i> 4º semestre • UniCEUB</span>
                 </div>
-                <div style="margin-top: 0.5rem; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
-                    <i class="fas fa-graduation-cap"></i> 4º semestre • UniCEUB
+                <div class="hero-stats">
+                    <div><strong>30+</strong> <span>Certificações</span></div>
+                    <div><strong>4º</strong> <span>Semestre</span></div>
+                    <div><strong>2+</strong> <span>Anos de exp.</span></div>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="mouse"></div>
+            <div class="mouse"><span></span></div>
             <span>Role para explorar</span>
         </div>
     </section>
 
-    <!-- SOBRE -->
+    <!-- ========== SOBRE ========== -->
     <section class="section" id="sobre">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Quem sou</span>
+                <span class="tag">Quem sou</span>
                 <h2>Sobre Mim</h2>
-                <div class="underline"></div>
+                <div class="line"></div>
             </div>
-            <div class="sobre-content">
-                <div class="sobre-text glass-card">
-                    <h3>Transformando ideias em código eficiente</h3>
-                    <p>Estudante de Engenharia de Software (4º semestre) com mais de <strong>30 certificações técnicas</strong>. Desenvolvedor Full Stack com experiência em criação de aplicações web responsivas, automações inteligentes (Python, Power Automate) e integração de APIs de IA.</p>
+            <div class="sobre-grid">
+                <div class="sobre-text">
+                    <h3>Transformando ideias em código <span class="gradient-text">eficiente</span></h3>
+                    <p>Estudante de <strong>Engenharia de Software</strong> (4º semestre) com mais de <strong>30 certificações técnicas</strong>. Desenvolvedor Full Stack com experiência em criação de aplicações web responsivas, automações inteligentes com Python e Power Automate, e integração de APIs de IA.</p>
                     <p>Busco oportunidade de estágio para aplicar minha versatilidade técnica e capacidade de aprendizado acelerado em projetos de impacto.</p>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="30">0+</div>
-                            <div class="stat-label">Certificações</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="4">0+</div>
-                            <div class="stat-label">Semestres cursados</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="10">0+</div>
-                            <div class="stat-label">Projetos</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="2">0+</div>
-                            <div class="stat-label">Anos de experiência</div>
-                        </div>
-                    </div>
-                    <a href="#contato" class="btn-download-cv"><i class="fas fa-file-pdf"></i> Baixar Currículo</a>
+                    <a href="#contato" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Baixar Currículo</a>
                 </div>
-                <div class="sobre-highlights">
-                    <div class="highlight-card glass-card">
+                <div class="sobre-cards">
+                    <div class="sobre-card">
                         <i class="fas fa-code"></i>
-                        <h4>Full Stack Developer</h4>
-                        <p>Python, Java, C#, JavaScript, SQL, APIs REST, HTML5, CSS3</p>
+                        <h4>Full Stack</h4>
+                        <p>Python, Java, C#, JavaScript, SQL, HTML5, CSS3</p>
                     </div>
-                    <div class="highlight-card glass-card">
+                    <div class="sobre-card">
                         <i class="fas fa-robot"></i>
-                        <h4>IA & Automação</h4>
-                        <p>Inteligência Artificial, Power Automate, VBA, Power BI, AWS</p>
+                        <h4>IA &amp; Automação</h4>
+                        <p>Power Automate, VBA, Power BI, AWS</p>
                     </div>
-                    <div class="highlight-card glass-card">
+                    <div class="sobre-card">
                         <i class="fas fa-rocket"></i>
-                        <h4>Low-Code & No-Code</h4>
-                        <p>FlutterFlow, Power Apps, Make (Integromat), NoCodeIA</p>
+                        <h4>Low-Code</h4>
+                        <p>FlutterFlow, Power Apps, Make, Oracle APEX</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
+    <!-- ========== EXPERIÊNCIA ========== -->
     <section class="section" id="experiencia">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Carreira</span>
+                <span class="tag">Carreira</span>
                 <h2>Experiência Profissional</h2>
-                <div class="underline"></div>
+                <div class="line"></div>
             </div>
-            <div class="timeline-container">
+            <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">2026 - Atualmente</span>
+                    <div class="timeline-card">
+                        <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2026 – Atualmente</span>
                         <h3>Estágio em Tecnologia da Informação</h3>
                         <h4>Polícia Federal (DF)</h4>
-                        <ul class="timeline-list">
-                            <li><i class="fas fa-check-circle"></i> Desenvolvimento descentralizado de sistemas utilizando tecnologia Low-Code (Oracle APEX)</li>
-                            <li><i class="fas fa-check-circle"></i> Levantamento de requisitos e modelagem de sistemas para a Diretoria de Gestão de Pessoas (DGP)</li>
-                            <li><i class="fas fa-check-circle"></i> Modelagem de dados e criação de consultas SQL para sistemas institucionais</li>
-                            <li><i class="fas fa-check-circle"></i> Elaboração de manuais técnicos e documentação complementar</li>
-                            <li><i class="fas fa-check-circle"></i> Apoio no desenvolvimento de scripts em Python para automação de rotinas internas</li>
-                            <li><i class="fas fa-check-circle"></i> Suporte a usuários internos e diagnóstico de falhas</li>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Desenvolvimento de sistemas com Low-Code (Oracle APEX)</li>
+                            <li><i class="fas fa-check"></i> Levantamento de requisitos e modelagem de sistemas para a DGP</li>
+                            <li><i class="fas fa-check"></i> Modelagem de dados e consultas SQL para sistemas institucionais</li>
+                            <li><i class="fas fa-check"></i> Elaboração de manuais técnicos e documentação</li>
+                            <li><i class="fas fa-check"></i> Scripts em Python para automação de rotinas internas</li>
+                            <li><i class="fas fa-check"></i> Suporte a usuários internos e diagnóstico de falhas</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">2024 - 2026</span>
+                    <div class="timeline-card">
+                        <span class="timeline-date"><i class="far fa-calendar-alt"></i> 2024 – 2026</span>
                         <h3>Freelancer Full Stack Developer</h3>
                         <h4>Brasília - DF</h4>
-                        <ul class="timeline-list">
-                            <li><i class="fas fa-check-circle"></i> Desenvolvimento e manutenção de aplicações web com Python, Java e C#</li>
-                            <li><i class="fas fa-check-circle"></i> Criação de interfaces responsivas com HTML, CSS e JavaScript</li>
-                            <li><i class="fas fa-check-circle"></i> Integração de APIs REST e manipulação de bancos de dados SQL</li>
-                            <li><i class="fas fa-check-circle"></i> Automação de processos com VBA (Excel) e Power Automate</li>
-                            <li><i class="fas fa-check-circle"></i> Geração de relatórios e dashboards para apoio à decisão</li>
-                            <li><i class="fas fa-check-circle"></i> Atendimento direto a clientes e suporte técnico</li>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Desenvolvimento e manutenção de aplicações web com Python, Java e C#</li>
+                            <li><i class="fas fa-check"></i> Interfaces responsivas com HTML, CSS e JavaScript</li>
+                            <li><i class="fas fa-check"></i> Integração de APIs REST e manipulação de bancos SQL</li>
+                            <li><i class="fas fa-check"></i> Automação de processos com VBA e Power Automate</li>
+                            <li><i class="fas fa-check"></i> Geração de relatórios e dashboards para apoio à decisão</li>
+                            <li><i class="fas fa-check"></i> Atendimento direto a clientes e suporte técnico</li>
                         </ul>
                     </div>
                 </div>
@@ -181,139 +163,127 @@
         </div>
     </section>
 
-    <!-- FORMAÇÃO -->
+    <!-- ========== FORMAÇÃO ========== -->
     <section class="section" id="formacao">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Educação</span>
+                <span class="tag">Educação</span>
                 <h2>Formação Acadêmica</h2>
-                <div class="underline"></div>
+                <div class="line"></div>
             </div>
             <div class="formacao-grid">
-                <div class="formacao-card glass-card">
-                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="card-content">
-                        <span class="card-date">2024 - 2028</span>
+                <div class="formacao-card">
+                    <div class="formacao-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="formacao-info">
+                        <span class="formacao-date">2024 – 2028</span>
                         <h3>Engenharia de Software</h3>
-                        <p class="institution">UniCEUB</p>
-                        <span class="badge-current">4º Semestre - Cursando</span>
-                        <p class="card-description">Desenvolvimento de software, arquitetura, banco de dados, metodologias ágeis e gestão de projetos.</p>
+                        <p class="formacao-inst">UniCEUB</p>
+                        <span class="formacao-badge">4º Semestre - Cursando</span>
+                        <p class="formacao-desc">Desenvolvimento de software, arquitetura, banco de dados e metodologias ágeis.</p>
                     </div>
                 </div>
-                <div class="formacao-card glass-card">
-                    <div class="card-icon"><i class="fas fa-school"></i></div>
-                    <div class="card-content">
-                        <span class="card-date">2020 - 2023</span>
+                <div class="formacao-card">
+                    <div class="formacao-icon"><i class="fas fa-school"></i></div>
+                    <div class="formacao-info">
+                        <span class="formacao-date">2020 – 2023</span>
                         <h3>Ensino Médio</h3>
-                        <p class="institution">Leonardo Da Vinci</p>
-                        <span class="badge-current">Completo</span>
-                        <p class="card-description">Formação acadêmica com ênfase em tecnologias e inovação.</p>
+                        <p class="formacao-inst">Leonardo Da Vinci</p>
+                        <span class="formacao-badge">Completo</span>
+                        <p class="formacao-desc">Formação com ênfase em tecnologias e inovação.</p>
                     </div>
                 </div>
-                <div class="formacao-card glass-card">
-                    <div class="card-icon"><i class="fas fa-language"></i></div>
-                    <div class="card-content">
-                        <span class="card-date">2021 - 2026</span>
+                <div class="formacao-card">
+                    <div class="formacao-icon"><i class="fas fa-language"></i></div>
+                    <div class="formacao-info">
+                        <span class="formacao-date">2021 – 2026</span>
                         <h3>Língua Inglesa</h3>
-                        <p class="institution">Cultura Inglesa</p>
-                        <span class="badge-level">Nível B2 - Intermediário</span>
-                        <p class="card-description">Fluência técnica para leitura de documentação, comunicação profissional e compreensão de textos técnicos.</p>
+                        <p class="formacao-inst">Cultura Inglesa</p>
+                        <span class="formacao-badge">Nível B2 - Intermediário</span>
+                        <p class="formacao-desc">Fluência técnica para leitura de documentação e comunicação profissional.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HABILIDADES -->
+    <!-- ========== HABILIDADES ========== -->
     <section class="section" id="habilidades">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Competências</span>
+                <span class="tag">Competências</span>
                 <h2>Habilidades Técnicas</h2>
-                <div class="underline"></div>
+                <div class="line"></div>
             </div>
-            <div class="skills-wrapper">
-                <div>
-                    <div class="skill-category glass-card">
-                        <h3><i class="fas fa-code" style="color: #6366f1;"></i> Linguagens & Frameworks</h3>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Python</span><span class="skill-level advanced">Avançado</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="advanced"></div></div>
+            <div class="habilidades-wrapper">
+                <div class="habilidades-col">
+                    <div class="habilidade-grupo">
+                        <h3><i class="fas fa-code"></i> Linguagens &amp; Frameworks</h3>
+                        <div class="skill">
+                            <div class="skill-info"><span>Python</span><span class="skill-level adv">Avançado</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="adv"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>JavaScript</span><span class="skill-level advanced">Avançado</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="advanced"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>JavaScript</span><span class="skill-level adv">Avançado</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="adv"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Java / C#</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>Java / C#</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>SQL</span><span class="skill-level advanced">Avançado</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="advanced"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>SQL</span><span class="skill-level adv">Avançado</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="adv"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>HTML5 / CSS3</span><span class="skill-level advanced">Avançado</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="advanced"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>HTML5 / CSS3</span><span class="skill-level adv">Avançado</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="adv"></div></div>
                         </div>
                     </div>
-                    <div class="skill-category glass-card">
-                        <h3><i class="fas fa-cloud" style="color: #6366f1;"></i> Cloud & IA</h3>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>AWS (Fundamentos)</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                    <div class="habilidade-grupo">
+                        <h3><i class="fas fa-cloud"></i> Cloud &amp; IA</h3>
+                        <div class="skill">
+                            <div class="skill-info"><span>AWS (Fundamentos)</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Inteligência Artificial</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>Inteligência Artificial</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>APIs de IA</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>APIs de IA</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="skill-category glass-card">
-                        <h3><i class="fas fa-chart-bar" style="color: #6366f1;"></i> Dados & Automação</h3>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Power BI</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                <div class="habilidades-col">
+                    <div class="habilidade-grupo">
+                        <h3><i class="fas fa-chart-bar"></i> Dados &amp; Automação</h3>
+                        <div class="skill">
+                            <div class="skill-info"><span>Power BI</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>VBA (Excel)</span><span class="skill-level advanced">Avançado</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="advanced"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>VBA (Excel)</span><span class="skill-level adv">Avançado</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="adv"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Power Automate</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>Power Automate</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span>Make (Integromat)</span><span class="skill-level intermediate">Intermediário</span></div>
-                            <div class="level-bar"><div class="level-fill" data-level="intermediate"></div></div>
+                        <div class="skill">
+                            <div class="skill-info"><span>Make (Integromat)</span><span class="skill-level int">Intermediário</span></div>
+                            <div class="skill-bar"><div class="skill-fill" data-level="int"></div></div>
                         </div>
                     </div>
-                    <div class="cert-highlight glass-card">
-                        <h3><i class="fas fa-certificate" style="color: #6366f1;"></i> Certificações (30+)</h3>
-                        <div class="cert-group">
-                            <h4><i class="fas fa-check-circle" style="color: #10b981;"></i> Python Impressionador</h4>
-                            <p>Automação, manipulação de dados e boas práticas em Python</p>
-                        </div>
-                        <div class="cert-group">
-                            <h4><i class="fas fa-check-circle" style="color: #10b981;"></i> Full Stack Impressionador</h4>
-                            <p>Integração front-end/back-end e aplicações completas</p>
-                        </div>
-                        <div class="cert-group">
-                            <h4><i class="fas fa-check-circle" style="color: #10b981;"></i> SQL & Power BI Impressionador</h4>
-                            <p>Modelagem de dados, consultas avançadas e visualização de dados</p>
-                        </div>
-                        <div class="cert-group">
-                            <h4><i class="fas fa-check-circle" style="color: #10b981;"></i> AWS & IA Impressionador</h4>
-                            <p>Fundamentos de computação em nuvem e inteligência artificial</p>
-                        </div>
-                        <div class="cert-group">
-                            <h4><i class="fas fa-check-circle" style="color: #10b981;"></i> VBA & Power Automate</h4>
-                            <p>Automação de tarefas no Excel e fluxos de trabalho empresariais</p>
+                    <div class="habilidade-grupo">
+                        <h3><i class="fas fa-certificate"></i> Certificações (30+)</h3>
+                        <div class="cert-list">
+                            <div class="cert-item"><i class="fas fa-check-circle"></i> Python Impressionador</div>
+                            <div class="cert-item"><i class="fas fa-check-circle"></i> Full Stack Impressionador</div>
+                            <div class="cert-item"><i class="fas fa-check-circle"></i> SQL &amp; Power BI Impressionador</div>
+                            <div class="cert-item"><i class="fas fa-check-circle"></i> AWS &amp; IA Impressionador</div>
+                            <div class="cert-item"><i class="fas fa-check-circle"></i> VBA &amp; Power Automate</div>
+                            <div class="cert-item"><i class="fas fa-check-circle"></i> HTML &amp; CSS • JavaScript • Excel</div>
                         </div>
                     </div>
                 </div>
@@ -321,229 +291,124 @@
         </div>
     </section>
 
-    <!-- PROJETOS -->
+    <!-- ========== PROJETOS ========== -->
     <section class="section" id="projetos">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Portfólio</span>
+                <span class="tag">Portfólio</span>
                 <h2>Projetos em Destaque</h2>
-                <div class="underline"></div>
+                <div class="line"></div>
             </div>
             <div class="projetos-grid">
-                <div class="projeto-card glass-card" data-category="web">
+                <div class="projeto-card">
                     <div class="projeto-img" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
                         <i class="fab fa-github"></i>
                         <div class="projeto-overlay">
-                            <a href="https://github.com/celsohft" target="_blank" class="project-link"><i class="fas fa-arrow-right"></i></a>
+                            <a href="https://github.com/celsohft" target="_blank"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="projeto-info">
                         <h3>GitHub Oficial</h3>
-                        <p>Repositórios com projetos Full Stack, automações, estudos em Python, Java e soluções web.</p>
-                        <div class="projeto-tech">
-                            <span>Python</span><span>JavaScript</span><span>Java</span><span>SQL</span>
+                        <p>Repositórios com projetos Full Stack, automações e estudos em Python, Java e SQL.</p>
+                        <div class="projeto-tags">
+                            <span>Python</span><span>JavaScript</span><span>Java</span>
                         </div>
-                        <div class="projeto-links">
-                            <a href="https://github.com/celsohft" target="_blank"><i class="fab fa-github"></i> Ver repositórios</a>
-                        </div>
+                        <a href="https://github.com/celsohft" target="_blank" class="projeto-link"><i class="fab fa-github"></i> Ver repositórios</a>
                     </div>
                 </div>
-                <div class="projeto-card glass-card" data-category="web">
+                <div class="projeto-card">
                     <div class="projeto-img" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
                         <i class="fas fa-chart-line"></i>
                         <div class="projeto-overlay">
-                            <a href="https://github.com/celsohft/projeto-acoes" target="_blank" class="project-link"><i class="fas fa-arrow-right"></i></a>
+                            <a href="https://github.com/celsohft/projeto-acoes" target="_blank"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="projeto-info">
                         <h3>Projeto Ações</h3>
-                        <p>Site para acompanhar ações da B3 em tempo real, desenvolvido com HTML, CSS e JavaScript.</p>
-                        <div class="projeto-tech">
+                        <p>Site para acompanhar ações da B3 em tempo real com HTML, CSS e JavaScript.</p>
+                        <div class="projeto-tags">
                             <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
                         </div>
-                        <div class="projeto-links">
-                            <a href="https://github.com/celsohft/projeto-acoes" target="_blank"><i class="fab fa-github"></i> Ver código</a>
-                        </div>
+                        <a href="https://github.com/celsohft/projeto-acoes" target="_blank" class="projeto-link"><i class="fab fa-github"></i> Ver código</a>
                     </div>
                 </div>
-                <div class="projeto-card glass-card" data-category="data">
+                <div class="projeto-card">
                     <div class="projeto-img" style="background: linear-gradient(135deg, #10b981, #34d399);">
                         <i class="fas fa-database"></i>
                         <div class="projeto-overlay">
-                            <a href="#" class="project-link"><i class="fas fa-arrow-right"></i></a>
+                            <a href="#contato"><i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="projeto-info">
-                        <h3>Dashboards & Automações</h3>
-                        <p>Dashboards Power BI, automações VBA, aplicações low-code com FlutterFlow e integrações de IA.</p>
-                        <div class="projeto-tech">
-                            <span>Power BI</span><span>VBA</span><span>FlutterFlow</span><span>IA</span>
+                        <h3>Dashboards &amp; Automações</h3>
+                        <p>Dashboards Power BI, automações VBA e aplicações low-code com FlutterFlow.</p>
+                        <div class="projeto-tags">
+                            <span>Power BI</span><span>VBA</span><span>FlutterFlow</span>
                         </div>
-                        <div class="projeto-links">
-                            <a href="#contato"><i class="fas fa-envelope"></i> Solicitar demonstração</a>
-                        </div>
+                        <a href="#contato" class="projeto-link"><i class="fas fa-envelope"></i> Solicitar demo</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- APRESENTAÇÃO COM SLIDES -->
-    <section class="section" id="slides">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Apresentação</span>
-                <h2>PortfolioHUB</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="slides-container glass-card">
-                <button class="slide-btn prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
-                <button class="slide-btn next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
-                <div class="slides-track" id="slidesTrack">
-                    <div class="slide">
-                        <div style="text-align: center;">
-                            <i class="fas fa-laptop-code" style="font-size: 4rem; color: #6366f1; margin-bottom: 1rem;"></i>
-                            <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">PortfolioHUB</h1>
-                            <p style="color: #64748b; font-size: 1.2rem;">Celso Henrique F. Takahashi</p>
-                            <div style="margin-top: 2rem;">
-                                <span style="background: #6366f1; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; color: white;">Engenharia de Software</span>
-                                <span style="background: #10b981; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; color: white; margin-left: 0.5rem;">Full Stack Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <h2 style="color: #6366f1; margin-bottom: 1rem;">📌 Sobre Mim</h2>
-                        <p style="color: #334155; line-height: 1.6;">Estudante de Engenharia de Software (4º semestre) na UniCEUB. Desenvolvedor Full Stack com mais de 30 certificações técnicas. Buscando estágio em TI para aplicar minha versatilidade técnica.</p>
-                        <div style="margin-top: 1.5rem;">
-                            <p><i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>Formação:</strong> UniCEUB (2024-2028)</p>
-                            <p><i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>Inglês:</strong> B2 - Cultura Inglesa</p>
-                            <p><i class="fas fa-check-circle" style="color: #10b981;"></i> <strong>Objetivo:</strong> Estágio em TI</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <h2 style="color: #6366f1; margin-bottom: 1rem;">💻 Habilidades Técnicas</h2>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">Python</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">JavaScript</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">Java</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">C#</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">SQL</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">Power BI</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">AWS</span>
-                            <span style="background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 20px;">IA</span>
-                        </div>
-                        <p style="color: #64748b;">+30 certificações técnicas</p>
-                    </div>
-                    <div class="slide">
-                        <h2 style="color: #6366f1; margin-bottom: 1rem;">🚀 Projetos em Destaque</h2>
-                        <div style="margin-bottom: 1rem;">
-                            <p><i class="fab fa-github" style="color: #6366f1;"></i> <strong>GitHub:</strong> github.com/celsohft</p>
-                            <p><i class="fas fa-chart-line" style="color: #6366f1;"></i> <strong>Projeto Ações:</strong> Site para acompanhar ações da B3</p>
-                            <p><i class="fas fa-code" style="color: #6366f1;"></i> <strong>PortfolioHUB:</strong> Portfólio profissional</p>
-                        </div>
-                        <div style="background: #f1f5f9; padding: 1rem; border-radius: 12px; margin-top: 1rem;">
-                            <i class="fas fa-tools"></i> Dashboards Power BI, automações VBA, aplicações low-code
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <h2 style="color: #6366f1; margin-bottom: 1rem;">🎓 Certificações</h2>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                            <span style="background: #e2e8f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Python Impressionador</span>
-                            <span style="background: #e2e8f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Full Stack Impressionador</span>
-                            <span style="background: #e2e8f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">Power BI Impressionador</span>
-                            <span style="background: #e2e8f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">AWS Impressionador</span>
-                            <span style="background: #e2e8f0; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">IA Impressionador</span>
-                        </div>
-                        <p style="margin-top: 1rem; color: #64748b;">+30 certificações no total</p>
-                    </div>
-                    <div class="slide">
-                        <h2 style="color: #6366f1; margin-bottom: 1rem;">📞 Contato</h2>
-                        <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong> celsokakashi@gmail.com</p>
-                        <p><i class="fab fa-whatsapp"></i> <strong>Telefone:</strong> (61) 9 8419-5834</p>
-                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> linkedin.com/in/celso-takahashi-94a4aa388/</p>
-                        <p><i class="fab fa-github"></i> <strong>GitHub:</strong> github.com/celsohft</p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="https://github.com/celsohft" target="_blank" style="background: #6366f1; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; display: inline-block;">Visitar GitHub</a>
-                            <a href="https://www.linkedin.com/in/celso-takahashi-94a4aa388/" target="_blank" style="background: #0a66c2; color: white; padding: 0.5rem 1rem; border-radius: 20px; text-decoration: none; display: inline-block; margin-left: 0.5rem;">Conectar no LinkedIn</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-dots" id="slideDots"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
+    <!-- ========== CONTATO ========== -->
     <section class="section" id="contato">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Vamos conversar</span>
+                <span class="tag">Vamos conversar</span>
                 <h2>Entre em Contato</h2>
-                <div class="underline"></div>
+                <div class="line"></div>
             </div>
-            <div class="contato-wrapper">
-                <div class="contato-info glass-card">
-                    <h3>Vamos criar algo incrível?</h3>
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <h3>Vamos criar algo <span class="gradient-text">incrível</span>?</h3>
                     <p>Estou disponível para conversar sobre oportunidades de estágio, projetos colaborativos ou qualquer outra ideia que você tenha.</p>
-                    <div class="contato-details">
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-text">
-                                <h4>E-mail</h4>
-                                <a href="mailto:celsokakashi@gmail.com">celsokakashi@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                            <div class="contact-text">
-                                <h4>Telefone / WhatsApp</h4>
-                                <a href="tel:+61984195834">(61) 9 8419-5834</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                            <div class="contact-text">
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/celso-takahashi-94a4aa388/" target="_blank">linkedin.com/in/celso-takahashi</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-github"></i></div>
-                            <div class="contact-text">
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/celsohft" target="_blank">github.com/celsohft</a>
-                            </div>
-                        </div>
+                    <div class="contato-item">
+                        <div class="contato-icon"><i class="fas fa-envelope"></i></div>
+                        <div><span>E-mail</span><a href="mailto:celsokakashi@gmail.com">celsokakashi@gmail.com</a></div>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div><span>Telefone</span><a href="tel:+61984195834">(61) 9 8419-5834</a></div>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/celso-takahashi-94a4aa388/" target="_blank">linkedin.com/in/celso-takahashi</a></div>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-icon"><i class="fab fa-github"></i></div>
+                        <div><span>GitHub</span><a href="https://github.com/celsohft" target="_blank">github.com/celsohft</a></div>
                     </div>
                 </div>
-                <div class="contato-form glass-card">
+                <div class="contato-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="nome" placeholder="Seu nome" required>
+                            <input type="text" placeholder="Seu nome" required />
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" placeholder="Seu e-mail" required>
+                            <input type="email" placeholder="Seu e-mail" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" id="assunto" placeholder="Assunto">
+                            <input type="text" placeholder="Assunto" />
                         </div>
                         <div class="form-group">
-                            <textarea id="mensagem" rows="4" placeholder="Sua mensagem..." required></textarea>
+                            <textarea rows="4" placeholder="Sua mensagem..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar mensagem</button>
+                        <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-paper-plane"></i> Enviar mensagem</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-icon">CT</span>
-                    <span><span>Celso</span> Takahashi</span>
+                    <span>Celso <span>Takahashi</span></span>
                     <p>Engenheiro de Software • Full Stack Developer</p>
                 </div>
                 <div class="footer-social">
@@ -552,14 +417,12 @@
                     <a href="mailto:celsokakashi@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="tel:+61984195834"><i class="fas fa-phone-alt"></i></a>
                 </div>
-                <div class="footer-copyright">
-                    <p>&copy; 2026 Celso Henrique F. Takahashi • Todos os direitos reservados.</p>
-                </div>
+                <p class="footer-copy">&copy; 2026 Celso Henrique F. Takahashi. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <button id="backToTop" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
 
     <script src="script.js"></script>
 </body>
