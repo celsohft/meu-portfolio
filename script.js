@@ -101,11 +101,6 @@ const skillObserver = new IntersectionObserver((entries) => {
 skillBars.forEach(bar => skillObserver.observe(bar));
 
 // ============================================
-// ANIMATE STATS (for numbers if you add them)
-// ============================================
-// Optional: you can add stat-number animation later
-
-// ============================================
 // CONTACT FORM
 // ============================================
 const form = document.getElementById('contactForm');
@@ -157,4 +152,4 @@ window.addEventListener('scroll', () => {
     });
 });
 
-console.log('🚀 Portfólio Celso Takahashi carregado!');
+console.log('🚀 Portfólio Celso Takahashi carregado com sucesso!');
