@@ -152,4 +152,19 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// ============================================
+// REVEAL SECTIONS ON SCROLL
+// ============================================
+const sectionsToReveal = document.querySelectorAll('.section');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+
+sectionsToReveal.forEach(section => revealObserver.observe(section));
+
 console.log('🚀 Portfólio Celso Takahashi carregado com sucesso!');
