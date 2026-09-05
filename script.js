@@ -2,7 +2,7 @@
 // NAVBAR SCROLL EFFECT
 // ============================================
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
@@ -13,8 +13,8 @@ window.addEventListener('scroll', () => {
 // ============================================
 // MENU MOBILE
 // ============================================
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
@@ -23,11 +23,10 @@ if (hamburger) {
     });
 }
 
-// Fechar menu ao clicar em link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        if (hamburger) hamburger.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
 
@@ -157,8 +156,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements
-document.querySelectorAll('.stat-item, .projeto-card, .formacao-card, .timeline-item, .skill-category, .cert-group, .language-card').forEach(el => {
+document.querySelectorAll('.stat-item, .projeto-card, .formacao-card, .timeline-item, .skill-category, .cert-group').forEach(el => {
     if (el) {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -167,8 +165,7 @@ document.querySelectorAll('.stat-item, .projeto-card, .formacao-card, .timeline-
     }
 });
 
-// Observar seção de habilidades
-const skillsSection = document.querySelector('#habilidades');
+const skillsSection = document.getElementById('habilidades');
 if (skillsSection) {
     const skillsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -180,37 +177,6 @@ if (skillsSection) {
     }, { threshold: 0.3 });
     skillsObserver.observe(skillsSection);
 }
-
-// ============================================
-// PROJECT FILTER
-// ============================================
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projects = document.querySelectorAll('.projeto-card');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        
-        projects.forEach(project => {
-            if (filter === 'all' || project.getAttribute('data-category') === filter) {
-                project.style.display = 'block';
-                setTimeout(() => {
-                    project.style.opacity = '1';
-                    project.style.transform = 'translateY(0)';
-                }, 10);
-            } else {
-                project.style.opacity = '0';
-                project.style.transform = 'translateY(30px)';
-                setTimeout(() => {
-                    project.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
-});
 
 // ============================================
 // CONTACT FORM
@@ -227,10 +193,7 @@ if (contactForm) {
 // ============================================
 // BACK TO TOP BUTTON
 // ============================================
-const backToTop = document.createElement('button');
-backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
-backToTop.id = 'backToTop';
-document.body.appendChild(backToTop);
+const backToTop = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 300) {
@@ -250,7 +213,7 @@ backToTop.addEventListener('click', () => {
 // ============================================
 // ACTIVE NAV LINK ON SCROLL
 // ============================================
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
@@ -273,128 +236,8 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// ADD HOVER ANIMATION TO CARDS
+// SLIDES - APRESENTAÇÃO INTERATIVA
 // ============================================
-const cards = document.querySelectorAll('.glass-card');
-cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.3s ease';
-    });
-});
-
-console.log('✨ Portfólio Celso Takahashi carregado com sucesso! ✨');
-
-// ============================================
-// ASSISTENTE IA - GEMINI (VERSÃO MELHORADA)
-// ============================================
-
-const btnGemini = document.getElementById('btn-gemini');
-const perguntaGemini = document.getElementById('pergunta-gemini');
-const respostaGemini = document.getElementById('resposta-gemini');
-
-if (btnGemini) {
-    btnGemini.addEventListener('click', () => {
-        const pergunta = perguntaGemini.value.trim();
-        if (pergunta === '') {
-            respostaGemini.innerHTML = '⚠️ Por favor, digite uma pergunta!';
-            return;
-        }
-        
-        respostaGemini.innerHTML = '🤔 Processando sua pergunta...';
-        
-        setTimeout(() => {
-            const perguntaLower = pergunta.toLowerCase();
-            let resposta = '';
-            
-            // ========== PERGUNTAS SOBRE EXPERIÊNCIA ==========
-            if (perguntaLower.includes('experiência') || perguntaLower.includes('trabalho') || perguntaLower.includes('fez') || perguntaLower.includes('atuou') || perguntaLower.includes('profissional') || perguntaLower.includes('qual a experiência')) {
-                resposta = 'Celso trabalha como <strong>Freelancer Full Stack Developer</strong> desde 2024. Suas principais atividades incluem:<br><br>✅ Manutenção e melhoria contínua de sistemas<br>✅ Desenvolvimento com Java, C#, Python e SQL<br>✅ Documentação técnica detalhada<br>✅ Criação de relatórios estratégicos<br>✅ Atendimento direto a clientes e sugestões de melhorias';
-            }
-            
-            // ========== PERGUNTAS SOBRE FORMAÇÃO ==========
-            else if (perguntaLower.includes('formação') || perguntaLower.includes('faculdade') || perguntaLower.includes('universidade') || perguntaLower.includes('estuda') || perguntaLower.includes('onde estuda') || perguntaLower.includes('cursa') || perguntaLower.includes('onde ele estuda')) {
-                resposta = '🎓 <strong>Formação Acadêmica:</strong><br><br>📚 <strong>Engenharia de Software</strong> - UniCEUB (2024-2028)<br>📖 4º semestre cursando<br><br>📚 <strong>Ensino Médio</strong> - Leonardo Da Vinci (2020-2023)<br>🇬🇧 <strong>Inglês B2</strong> - Cultura Inglesa (2021-2026)';
-            }
-            
-            // ========== PERGUNTAS SOBRE HABILIDADES ==========
-            else if (perguntaLower.includes('habilidade') || perguntaLower.includes('sabe fazer') || perguntaLower.includes('tecnologia') || perguntaLower.includes('programa') || perguntaLower.includes('linguagem') || perguntaLower.includes('stack') || perguntaLower.includes('o que ele sabe')) {
-                resposta = '💻 <strong>Principais Habilidades Técnicas:</strong><br><br>🔹 <strong>Back-end:</strong> Python, Java, C#, SQL, APIs REST<br>🔹 <strong>Front-end:</strong> JavaScript, HTML5, CSS3<br>🔹 <strong>Dados:</strong> Power BI, Análise de Dados<br>🔹 <strong>Automação:</strong> VBA, Power Automate, Make<br>🔹 <strong>Cloud:</strong> AWS (Fundamentos)<br>🔹 <strong>IA:</strong> Inteligência Artificial, APIs de IA<br>🔹 <strong>No-Code:</strong> FlutterFlow, Power Apps';
-            }
-            
-            // ========== PERGUNTAS SOBRE CERTIFICAÇÕES ==========
-            else if (perguntaLower.includes('certificação') || perguntaLower.includes('curso') || perguntaLower.includes('certificado') || perguntaLower.includes('formação complementar') || perguntaLower.includes('tem certificado')) {
-                resposta = '📜 <strong>Certificações e Cursos (30+):</strong><br><br>✅ Python Impressionador<br>✅ Full Stack Impressionador<br>✅ SQL Impressionador<br>✅ Power BI Impressionador<br>✅ AWS Impressionador<br>✅ IA Impressionador<br>✅ VBA Impressionador<br>✅ Power Automate<br>✅ FlutterFlow Impressionador<br>✅ Make (Integromat)<br>✅ Trilha NoCodeIA<br>✅ Análise de Dados<br>✅ Excel Impressionador';
-            }
-            
-            // ========== PERGUNTAS SOBRE PROJETOS ==========
-            else if (perguntaLower.includes('projeto') || perguntaLower.includes('github') || perguntaLower.includes('repositório') || perguntaLower.includes('criou') || perguntaLower.includes('desenvolveu') || perguntaLower.includes('tem projeto')) {
-                resposta = '🚀 <strong>Projetos em Destaque:</strong><br><br>📌 <strong>GitHub:</strong> https://github.com/celsohft<br><br>📌 <strong>Projeto Ações:</strong> Site para acompanhar ações da B3 em tempo real, desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>PortfolioHUB:</strong> Este portfólio profissional desenvolvido com HTML, CSS e JavaScript.<br><br>📌 <strong>Outros:</strong> Dashboards Power BI, automações VBA, aplicações low-code com FlutterFlow.';
-            }
-            
-            // ========== PERGUNTAS SOBRE CONTATO ==========
-            else if (perguntaLower.includes('contato') || perguntaLower.includes('email') || perguntaLower.includes('telefone') || perguntaLower.includes('whatsapp') || perguntaLower.includes('falar') || perguntaLower.includes('entrar em contato') || perguntaLower.includes('como falar')) {
-                resposta = '📞 <strong>Contato:</strong><br><br>📧 <strong>E-mail:</strong> celsokakashi@gmail.com<br>📱 <strong>Telefone/WhatsApp:</strong> (61) 9 8419-5834<br>🔗 <strong>LinkedIn:</strong> https://www.linkedin.com/in/celso-takahashi-94a4aa388/<br>💻 <strong>GitHub:</strong> https://github.com/celsohft';
-            }
-            
-            // ========== PERGUNTAS SOBRE ESTÁGIO ==========
-            else if (perguntaLower.includes('estágio') || perguntaLower.includes('oportunidade') || perguntaLower.includes('emprego') || perguntaLower.includes('vaga') || perguntaLower.includes('procura') || perguntaLower.includes('busca')) {
-                resposta = '🎯 <strong>Busca por Estágio:</strong><br><br>Celso está buscando oportunidade de estágio na área de <strong>Tecnologia da Informação (TI)</strong>.<br><br><strong>Objetivo:</strong> Aplicar suas habilidades técnicas, versatilidade e capacidade de aprendizado acelerado em projetos de impacto na área de desenvolvimento de software, análise de dados ou automação.';
-            }
-            
-            // ========== PERGUNTAS SOBRE SOFT SKILLS ==========
-            else if (perguntaLower.includes('soft skill') || perguntaLower.includes('comportamento') || perguntaLower.includes('qualidades') || perguntaLower.includes('perfil')) {
-                resposta = '🌟 <strong>Soft Skills:</strong><br><br>✅ Comunicação eficaz<br>✅ Adaptabilidade técnica<br>✅ Aprendizado autônomo e rápido<br>✅ Abertura a feedbacks construtivos<br>✅ Flexibilidade diante de mudanças<br>✅ Colaboração em equipes multidisciplinares';
-            }
-            
-            // ========== PERGUNTAS SOBRE QUEM É ==========
-            else if (perguntaLower.includes('quem é') || perguntaLower.includes('sobre') || perguntaLower.includes('apresente') || perguntaLower.includes('quem é celso')) {
-                resposta = '👨‍💻 <strong>Sobre Celso:</strong><br><br>Meu nome é <strong>Celso Henrique F. Takahashi</strong>. Sou estudante de <strong>Engenharia de Software</strong> (4º semestre) na UniCEUB, <strong>Desenvolvedor Full Stack</strong> com mais de <strong>30 certificações técnicas</strong>. Tenho experiência em criação de aplicações web responsivas, automações inteligentes e integração de APIs de IA. Busco oportunidade de estágio para aplicar minha versatilidade técnica e capacidade de aprendizado acelerado.';
-            }
-            
-            // ========== PERGUNTAS SOBRE INGLÊS ==========
-            else if (perguntaLower.includes('inglês') || perguntaLower.includes('ingles') || perguntaLower.includes('fala inglês') || perguntaLower.includes('sabe inglês')) {
-                resposta = '🇬🇧 <strong>Inglês:</strong><br><br>Celso possui inglês nível <strong>intermediário B2</strong> pela <strong>Cultura Inglesa</strong> (2021-2026).<br><br>✅ Fluência técnica para leitura de documentação<br>✅ Comunicação profissional<br>✅ Compreensão de textos técnicos em inglês';
-            }
-            
-            // ========== PERGUNTAS SOBRE ENSINO MÉDIO ==========
-            else if (perguntaLower.includes('ensino médio') || perguntaLower.includes('medio') || perguntaLower.includes('segundo grau')) {
-                resposta = '📚 <strong>Ensino Médio:</strong><br><br>Ensino Médio completo pela escola <strong>Leonardo Da Vinci</strong> (2020-2023), com formação acadêmica com ênfase em tecnologias e inovação.';
-            }
-            
-            // ========== PERGUNTAS SOBRE AJUDA ==========
-            else if (perguntaLower.includes('ajuda') || perguntaLower.includes('o que você sabe') || perguntaLower.includes('o que pode fazer')) {
-                resposta = '🤖 <strong>Como posso ajudar:</strong><br><br>Posso responder perguntas sobre:<br><br>📌 <strong>Quem é Celso</strong> (apresentação)<br>📌 <strong>Formação acadêmica</strong> (faculdade, inglês, ensino médio)<br>📌 <strong>Habilidades técnicas</strong> (tecnologias, stacks)<br>📌 <strong>Certificações e cursos</strong><br>📌 <strong>Experiência profissional</strong><br>📌 <strong>Projetos no GitHub</strong><br>📌 <strong>Contato</strong> (e-mail, telefone)<br>📌 <strong>Estágio e oportunidades</strong><br>📌 <strong>Soft skills</strong><br><br>Pergunte de forma natural! 😊';
-            }
-            
-            // ========== SAUDAÇÕES ==========
-            else if (perguntaLower.includes('oi') || perguntaLower.includes('olá') || perguntaLower.includes('ola') || perguntaLower.includes('bom dia') || perguntaLower.includes('boa tarde') || perguntaLower.includes('boa noite')) {
-                resposta = 'Olá! 😊 Sou o assistente virtual do PortfolioHUB. Como posso ajudar você hoje?<br><br>Pergunte sobre formação, habilidades, projetos, experiência ou contato do Celso.';
-            }
-            
-            // ========== RESPOSTA PADRÃO ==========
-            else {
-                resposta = `🤔 <strong>Não entendi sua pergunta sobre "${pergunta}".</strong><br><br>Mas posso ajudar com perguntas como:<br><br>📌 "Qual a experiência do Celso?"<br>📌 "Onde ele estuda?"<br>📌 "O que ele sabe fazer?"<br>📌 "Quais projetos ele tem?"<br>📌 "Como entro em contato?"<br>📌 "Ele está procurando estágio?"<br><br>Tente perguntar de forma natural! 😊`;
-            }
-            
-            respostaGemini.innerHTML = `💬 <strong>Você perguntou:</strong> "${pergunta}"<br><br>🤖 <strong>Resposta:</strong><br>${resposta}`;
-            perguntaGemini.value = '';
-        }, 500);
-    });
-    
-    perguntaGemini.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            btnGemini.click();
-        }
-    });
-}
-
-console.log('🤖 Assistente IA - Gemini ativado!');
-
-// ============================================
-// SLIDES - APRESENTAÇÃO INTERATIVA (CORRIGIDO)
-// ============================================
-
-// Aguarda o DOM carregar completamente
 document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     const slidesTrack = document.getElementById('slidesTrack');
@@ -403,19 +246,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prevSlide');
     const nextBtn = document.getElementById('nextSlide');
     
-    // Verificar se os elementos existem
-    if (!slidesTrack || slides.length === 0) {
-        console.log('Slides não encontrados');
-        return;
-    }
+    if (!slidesTrack || slides.length === 0) return;
     
-    console.log('Slides encontrados:', slides.length);
-    
-    // Criar os dots (indicadores)
     if (dotsContainer) {
-        dotsContainer.innerHTML = ''; // Limpar dots existentes
+        dotsContainer.innerHTML = '';
         for (let i = 0; i < slides.length; i++) {
-            const dot = document.createElement('div');
+            const dot = document.createElement('button');
             dot.classList.add('slide-dot');
             if (i === 0) dot.classList.add('active');
             dot.addEventListener('click', (function(index) {
@@ -426,17 +262,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateSlides() {
-        if (slidesTrack) {
-            slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-        // Atualizar dots
+        slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
         const dots = document.querySelectorAll('.slide-dot');
         dots.forEach((dot, index) => {
-            if (index === currentSlide) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
+            dot.classList.toggle('active', index === currentSlide);
         });
     }
     
@@ -444,10 +273,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentSlide < slides.length - 1) {
             currentSlide++;
             updateSlides();
-        } else {
-            // Opcional: Voltar ao primeiro slide
-            // currentSlide = 0;
-            // updateSlides();
         }
     }
     
@@ -463,29 +288,13 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlides();
     }
     
-    // Adicionar eventos aos botões
-    if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
-        console.log('Botão anterior configurado');
-    } else {
-        console.log('Botão anterior não encontrado');
-    }
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
     
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-        console.log('Botão próximo configurado');
-    } else {
-        console.log('Botão próximo não encontrado');
-    }
-    
-    // Teclas de navegação (setas do teclado)
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            prevSlide();
-        } else if (e.key === 'ArrowRight') {
-            nextSlide();
-        }
+        if (e.key === 'ArrowLeft') prevSlide();
+        else if (e.key === 'ArrowRight') nextSlide();
     });
-    
-    console.log('📊 Slides interativos carregados! Total de slides:', slides.length);
 });
+
+console.log('✨ Portfólio Celso Takahashi carregado com sucesso! ✨');
